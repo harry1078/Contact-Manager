@@ -1,0 +1,35 @@
+.contact__card {
+  margin-top: 48px;
+  padding: 24px;
+}
+
+/* edit contact  */
+
+.submitCard {
+  width: 406px;
+  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  margin-top: 64px;
+}
+.cardContent {
+  padding: "25px";
+}
+.submitTitle {
+  font-size: "22.7px";
+  color: #1b1938;
+  font-weight: 400;
+}
+.alertBox {
+  width: 353.3px;
+  height: 86.7px;
+  border-radius: 13.3px;
+}
+
+.button {
+  font-size: 12.7px;
+  font-weight: 400;
+}
+
+.addBtn {
+  background-color: #212121 !important;
+}
