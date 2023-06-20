@@ -7,11 +7,13 @@ import { useGetMoviesQuery } from "../services/movieApi";
 import { MovieDetails } from "./MovieDetails";
 import { AddToCart } from "./AddToCart";
 import { AddMovies } from "./AddMovies";
+import useDebounce from "../../hooks/useDebounce";
 
 export const MovieManager = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
-  const { data } = useGetMoviesQuery(query);
+  const debouncedValue = useDebounce(query, 500);
+  const { data } = useGetMoviesQuery(debouncedValue);
 
   useEffect(() => {
     setMovies(data?.Search);
