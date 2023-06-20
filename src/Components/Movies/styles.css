@@ -2,9 +2,6 @@
   flex-wrap: wrap;
 }
 
-.movie__container {
-}
-
 .movie__row::-webkit-scrollbar {
   display: none;
 }
