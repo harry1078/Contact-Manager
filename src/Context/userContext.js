@@ -31,7 +31,7 @@ export const UserContextProvider = (props) => {
     ) {
       setUser({ name: data.username, isUserLoggedIn: true });
       setError(false);
-      navigate("/home/contactlist");
+      navigate("/home");
     } else {
       setError(true);
       navigate("/");

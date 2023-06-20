@@ -15,7 +15,7 @@ const ContactList = (props) => {
   };
 
   const editContact = (item) => {
-    navigate("/home/editcontact/", {
+    navigate("/contact/editcontact/", {
       state: {
         contact: {
           id: item.id,
@@ -27,7 +27,7 @@ const ContactList = (props) => {
   };
 
   const goToAddContactPage = () => {
-    navigate("/home/addContact/");
+    navigate("/contact/addContact/");
   };
 
   const listOfContacts = (

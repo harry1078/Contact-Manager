@@ -18,7 +18,7 @@ export const Header = () => {
               component="div"
               sx={{ flexGrow: 1, textAlign: "initial" }}
             >
-              Contact Manager
+              React App
             </Typography>
             <Typography component="div" mr={"20px"}>
               Welcome, {user.name}

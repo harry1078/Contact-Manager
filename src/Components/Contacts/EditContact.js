@@ -33,7 +33,7 @@ export const EditContact = (props) => {
     e.preventDefault();
     props.updateContactHandler(editContact);
     resetInputField();
-    navigate("/home/contactlist/");
+    navigate("/contact/contactlist/");
   };
 
   const resetInputField = () => {
@@ -44,7 +44,7 @@ export const EditContact = (props) => {
   };
 
   const cancelChangeHandler = () => {
-    navigate("/home/contactlist/");
+    navigate("/contact/contactlist/");
   };
   return (
     <Box>

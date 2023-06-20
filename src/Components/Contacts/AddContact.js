@@ -38,7 +38,7 @@ export const AddContact = (props) => {
     props.addContactHandler(User);
 
     setUser({ name: "", email: "" });
-    navigate("/home/contactList");
+    navigate("/contact/contactList");
   };
 
   return (
