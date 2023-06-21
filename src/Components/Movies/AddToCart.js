@@ -25,7 +25,9 @@ export const AddToCart = (props) => {
 
   return (
     <div>
-      <Card sx={{ minWidth: "500px", p: 2 }}>
+      <Card
+        sx={{ minWidth: "500px", p: 2, height: "500px", overflowY: "auto" }}
+      >
         <Box display="flex" justifyContent="space-between">
           <Typography variant="h5">Cart Items</Typography>
           <Box>
