@@ -23,11 +23,39 @@ export const AddToCart = (props) => {
     </>
   );
 
+  const style = {
+    scroll: () => {
+      return {
+        minWidth: "500px",
+        p: 2,
+      };
+    },
+    cartBox: () => {
+      return {
+        mt: 4,
+        height: "500px",
+        overflowY: "auto",
+        "&::-webkit-scrollbar": {
+          height: "6px",
+          width: "6px",
+        },
+        "&::-webkit-scrollbar-track": {
+          "--webkitBorderRadius": "10px",
+          borderRadius: "10px",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          "--webkitBorderRadius": "10px",
+          borderRadius: "10px",
+          backgroundColor: "#c8c8c8",
+          "--webkitBoxShadow": "inset 0 0 6px #c8c8c8",
+        },
+      };
+    },
+  };
+
   return (
     <div>
-      <Card
-        sx={{ minWidth: "500px", p: 2, height: "500px", overflowY: "auto" }}
-      >
+      <Card sx={style.scroll}>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="h5">Cart Items</Typography>
           <Box>
@@ -38,7 +66,7 @@ export const AddToCart = (props) => {
           </Box>
         </Box>
 
-        <Box sx={{ mt: 4 }}>
+        <Box sx={style.cartBox}>
           {addMovie?.length
             ? addMovie?.map((movie) => {
                 return (
