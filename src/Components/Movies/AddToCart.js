@@ -33,7 +33,7 @@ export const AddToCart = (props) => {
     cartBox: () => {
       return {
         mt: 4,
-        height: "500px",
+        height: addMovie?.length > 5 ? "500px" : "auto",
         overflowY: "auto",
         "&::-webkit-scrollbar": {
           height: "6px",
