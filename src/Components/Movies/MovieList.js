@@ -34,9 +34,11 @@ export const MovieList = (props) => {
     dispatch(removeMovieFromCart(imdbID));
     successMsg("deleted successfully!");
   };
-
   return (
-    <Card sx={{ width: "300px", padding: "20px", mr: 4, mb: 4 }}>
+    <Card
+      sx={{ width: "300px", padding: "20px", mr: 4, mb: 4 }}
+      className="movie__card"
+    >
       <Link
         to={`/movie/details/${movie.imdbID}`}
         target="_self"
@@ -58,10 +60,22 @@ export const MovieList = (props) => {
           <Typography gutterBottom variant="h5" component="div">
             {movie.Title}
           </Typography>
-          <Moment format="YYYY">{movie.Year}</Moment>
+          <Box className="movie__type">
+            <Moment format="YYYY">{movie.Year}</Moment>
+            <Typography variant="subtitle1" component="div">
+              {movie.Type}
+            </Typography>
+          </Box>
         </Box>
       </CardContent>
-      <CardActions>
+      <CardActions
+        sx={{
+          justifyContent: "space-between",
+          marginTop: "auto",
+          pl: 0,
+          pr: 0,
+        }}
+      >
         <Button
           variant="contained"
           size="small"
