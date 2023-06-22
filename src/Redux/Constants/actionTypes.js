@@ -1,4 +1,0 @@
-export const ActionTypes = {
-  SET_CONTACTS: "SET_CONTACTS",
-  SET_SELECTED_CONTACTS: "SET_SELECTED_CONTACTS",
-};

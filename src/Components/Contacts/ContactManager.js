@@ -1,7 +1,6 @@
 import { Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { AddContact } from "./AddContact";
-import { ContactContextProvider } from "../../Context/contactContext";
 import { Route, Routes } from "react-router-dom";
 import ContactList from "./ContactList";
 import { EditContact } from "./EditContact";
@@ -61,29 +60,27 @@ const ContactManager = () => {
   return (
     <div>
       <Container maxWidth="md">
-        <ContactContextProvider>
-          <Routes>
-            <Route
-              path="/addcontact"
-              element={<AddContact addContactHandler={addContactHandler} />}
-            ></Route>
-            <Route
-              path="/editcontact"
-              element={
-                <EditContact updateContactHandler={updateContactHandler} />
-              }
-            ></Route>
-            <Route
-              path="/contactlist"
-              element={
-                <ContactList
-                  contacts={contacts}
-                  getContactId={removeContactHandler}
-                />
-              }
-            ></Route>
-          </Routes>
-        </ContactContextProvider>
+        <Routes>
+          <Route
+            path="/addcontact"
+            element={<AddContact addContactHandler={addContactHandler} />}
+          ></Route>
+          <Route
+            path="/editcontact"
+            element={
+              <EditContact updateContactHandler={updateContactHandler} />
+            }
+          ></Route>
+          <Route
+            path="/contactlist"
+            element={
+              <ContactList
+                contacts={contacts}
+                getContactId={removeContactHandler}
+              />
+            }
+          ></Route>
+        </Routes>
       </Container>
       <ToastContainer />
     </div>

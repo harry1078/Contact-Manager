@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { successMsg } from "../Components/Auth/LoginError";
 import { ToastContainer } from "react-toastify";
@@ -57,10 +57,20 @@ export const UserContextProvider = (props) => {
     successMsg("Account Created Successfully!");
   };
 
+  const userDetails = useMemo(
+    () => ({
+      user,
+      logIn,
+      logOut,
+      error,
+      closeAlert,
+      addUserData,
+    }),
+    []
+  );
+
   return (
-    <userContext.Provider
-      value={{ user, logIn, logOut, error, closeAlert, addUserData }}
-    >
+    <userContext.Provider value={userDetails}>
       {props.children}
       <ToastContainer />
     </userContext.Provider>

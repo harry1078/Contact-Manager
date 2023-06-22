@@ -34,8 +34,8 @@ const ContactList = (props) => {
     <Box>
       {contacts.map((contact) => {
         return (
-          <Box mb={3}>
-            <Card key={contact.id}>
+          <Box mb={3} key={contact.id}>
+            <Card>
               <Box
                 p={2}
                 display={"flex"}
