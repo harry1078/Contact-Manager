@@ -8,11 +8,13 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MovieModal from "../Layout/Modal/Modal";
 import { useSelector } from "react-redux";
 import { selectAllMovies } from "../../Redux/movieSlice";
+import MovieFilterRoundedIcon from "@mui/icons-material/MovieFilterRounded";
 const MovieListHeading = (props) => {
   return (
-    <div>
+    <Box display={"flex"} alignItems={"center"}>
       <Typography variant="h4">{props.heading}</Typography>
-    </div>
+      <MovieFilterRoundedIcon fontSize="large" />
+    </Box>
   );
 };
 

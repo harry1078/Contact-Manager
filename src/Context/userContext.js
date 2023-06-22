@@ -1,4 +1,10 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { successMsg } from "../Components/Auth/LoginError";
 import { ToastContainer } from "react-toastify";
@@ -22,40 +28,46 @@ export const UserContextProvider = (props) => {
     },
   ]);
 
-  const logIn = (data) => {
-    if (
-      existingUserData.some(
-        (user) =>
-          user.username === data.username && user.password === data.password
-      )
-    ) {
-      setUser({ name: data.username, isUserLoggedIn: true });
-      setError(false);
-      navigate("/home");
-    } else {
-      setError(true);
-      navigate("/");
-    }
-  };
+  const logIn = useCallback(
+    (data) => {
+      if (
+        existingUserData.some(
+          (user) =>
+            user.username === data.username && user.password === data.password
+        )
+      ) {
+        setUser({ name: data.username, isUserLoggedIn: true });
+        setError(false);
+        navigate("/home");
+      } else {
+        setError(true);
+        navigate("/");
+      }
+    },
+    [existingUserData, navigate]
+  );
 
-  const logOut = () => {
+  const logOut = useCallback(() => {
     setUser(initialValue);
     successMsg("User Logged Out Successfully");
     navigate("/");
-  };
+  }, [navigate]);
 
-  const closeAlert = () => {
+  const closeAlert = useCallback(() => {
     setError(false);
-  };
+  }, []);
 
-  const addUserData = (data) => {
-    setExistingUserData([
-      ...existingUserData,
-      { username: data.username, password: data.password },
-    ]);
+  const addUserData = useCallback(
+    (data) => {
+      setExistingUserData([
+        ...existingUserData,
+        { username: data.username, password: data.password },
+      ]);
 
-    successMsg("Account Created Successfully!");
-  };
+      successMsg("Account Created Successfully!");
+    },
+    [existingUserData]
+  );
 
   const userDetails = useMemo(
     () => ({
@@ -66,7 +78,7 @@ export const UserContextProvider = (props) => {
       closeAlert,
       addUserData,
     }),
-    []
+    [user, logIn, logOut, error, closeAlert, addUserData]
   );
 
   return (
